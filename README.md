@@ -3,8 +3,8 @@
 A full-stack personal portfolio web application built for the Web Development
 final assessment at CamTech University.
 
-**Live website:** _add your URL after deployment_
-**GitHub repository:** _add your repo URL_
+**Live website:** https://d2mg37dzgsy9q4.cloudfront.net
+**GitHub repository:** https://github.com/Sanlong-15/portfolio-fullstack
 
 ## Project Overview
 
@@ -31,7 +31,7 @@ of projects.
 | Front end | React 19, React Router 7, Vite, HTML5, CSS3, JavaScript (ES6+) |
 | Back end | Node.js, Express 4 |
 | Database | MongoDB (Mongoose ODM), MongoDB Atlas |
-| Deployment | AWS Amplify (front end), Amazon EC2 (back end) |
+| Deployment | Amazon S3 + CloudFront (front end), Amazon EC2 + CloudFront (back end), Parameter Store (secrets) |
 | Tools | Git, GitHub, VS Code, Figma |
 
 ## Application Architecture
