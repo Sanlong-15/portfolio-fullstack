@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState } from 'react'
 import SectionHeading from '../components/SectionHeading.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import ProjectDetails from '../components/ProjectDetails.jsx'
@@ -9,29 +9,41 @@ import useFetch from '../hooks/useFetch.js'
 import { getProjects } from '../services/api.js'
 
 /**
- * Projects page — data comes from MongoDB through the REST API.
- * Demonstrates: API requests, loading/error states, list rendering,
- * filtering with array methods, and a details modal.
+ * Projects page — the data comes from MongoDB through the REST API.
+ * Shows: loading spinner → then either an error box or the project cards.
  */
 export default function ProjectsPage() {
-  const fetcher = useCallback(() => getProjects(), [])
-  const { data: projects, loading, error, refetch } = useFetch(fetcher)
+  // Load all projects from the API (see hooks/useFetch.js)
+  const { data: projects, loading, error, refetch } = useFetch(getProjects)
+
+  // Which technology filter is active, e.g. 'All' or 'React'
   const [filter, setFilter] = useState('All')
+
+  // Which project is open in the details modal (null = closed)
   const [selected, setSelected] = useState(null)
 
-  // Build the unique technology list for filter buttons.
-  const techFilters = useMemo(() => {
-    if (!projects) return []
-    const all = projects.flatMap((p) => p.technologies)
-    return ['All', ...new Set(all)]
-  }, [projects])
+  // These are plain variables, recalculated on every render.
+  // The list is small, so that is perfectly fine.
+  let techFilters = []
+  let visibleProjects = []
 
-  // filter() keeps only projects that use the chosen technology.
-  const visible = useMemo(() => {
-    if (!projects) return []
-    if (filter === 'All') return projects
-    return projects.filter((p) => p.technologies.includes(filter))
-  }, [projects, filter])
+  if (projects) {
+    // Step 1: collect the technologies of ALL projects into one list.
+    // flatMap turns [['HTML','CSS'], ['React']] into ['HTML','CSS','React']
+    const allTechnologies = projects.flatMap((project) => project.technologies)
+
+    // Step 2: new Set(...) removes duplicates, then we add 'All' in front
+    techFilters = ['All', ...new Set(allTechnologies)]
+
+    // Step 3: keep only the projects that use the chosen technology
+    if (filter === 'All') {
+      visibleProjects = projects
+    } else {
+      visibleProjects = projects.filter((project) =>
+        project.technologies.includes(filter)
+      )
+    }
+  }
 
   return (
     <div className="section container">
@@ -42,11 +54,13 @@ export default function ProjectsPage() {
         center
       />
 
+      {/* Conditional rendering: only ONE of these three blocks shows */}
       {loading && <Loading text="Loading projects…" />}
       {error && <ErrorMessage message={error} onRetry={refetch} />}
 
       {!loading && !error && projects && (
         <>
+          {/* Filter buttons, one per technology */}
           <div className="filter-bar" role="group" aria-label="Filter projects by technology">
             {techFilters.map((tech) => (
               <button
@@ -59,11 +73,11 @@ export default function ProjectsPage() {
             ))}
           </div>
 
-          {visible.length === 0 ? (
+          {visibleProjects.length === 0 ? (
             <p className="empty-note">No projects match this filter yet.</p>
           ) : (
             <div className="projects-grid">
-              {visible.map((project) => (
+              {visibleProjects.map((project) => (
                 <ProjectCard key={project._id} project={project} onDetails={setSelected} />
               ))}
             </div>
@@ -71,6 +85,7 @@ export default function ProjectsPage() {
         </>
       )}
 
+      {/* The details modal opens when a project is selected */}
       {selected && (
         <Modal title={selected.title} onClose={() => setSelected(null)}>
           <ProjectDetails project={selected} />

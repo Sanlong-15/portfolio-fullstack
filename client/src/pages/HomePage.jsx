@@ -1,42 +1,22 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SectionHeading from '../components/SectionHeading.jsx'
 import SkillCard from '../components/SkillCard.jsx'
 import Button from '../components/Button.jsx'
 import useScrollReveal from '../hooks/useScrollReveal.js'
+import useTypewriter from '../hooks/useTypewriter.js'
 import profile from '../data/profile.js'
 import skillGroups from '../data/skills.js'
 import education from '../data/education.js'
 import achievements from '../data/achievements.js'
 
-/** Typewriter effect for the rotating role titles. */
-const useTypewriter = (words) => {
-  const [index, setIndex] = useState(0)
-  const [text, setText] = useState('')
-  const [deleting, setDeleting] = useState(false)
-
-  useEffect(() => {
-    const word = words[index]
-    let timer
-    if (!deleting && text.length < word.length) {
-      timer = setTimeout(() => setText(word.slice(0, text.length + 1)), 60)
-    } else if (!deleting && text.length === word.length) {
-      timer = setTimeout(() => setDeleting(true), 2000)
-    } else if (deleting && text.length > 0) {
-      timer = setTimeout(() => setText(text.slice(0, -1)), 30)
-    } else {
-      setDeleting(false)
-      setIndex((i) => (i + 1) % words.length)
-    }
-    return () => clearTimeout(timer)
-  }, [text, deleting, index, words])
-
-  return text
-}
-
+/**
+ * Home page — hero, about, skills, education, achievements, contact CTA.
+ * All personal content lives in src/data/, so this file is only layout.
+ */
 export default function HomePage() {
-  const ref = useScrollReveal()
-  const typed = useTypewriter(profile.roles)
+  const ref = useScrollReveal()                  // fade-in animation on scroll
+  const typed = useTypewriter(profile.roles)     // rotating role text in the hero
   const [photoBroken, setPhotoBroken] = useState(false)
 
   return (
@@ -57,6 +37,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="hero-photo">
+          {/* If the photo fails to load, show my initials instead */}
           {!photoBroken ? (
             <img
               src={profile.photo}
@@ -109,6 +90,7 @@ export default function HomePage() {
           subtitle="The languages, tools, and practices I work with."
         />
         <div className="skills-grid">
+          {/* List rendering: one SkillCard per category */}
           {skillGroups.map(({ category, icon, skills }) => (
             <SkillCard key={category} category={category} icon={icon} skills={skills} />
           ))}
@@ -151,7 +133,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---- Contact CTA ---- */}
+      {/* ---- Contact call-to-action ---- */}
       <section className="section container cta-band reveal">
         <h2>Have a project or opportunity in mind?</h2>
         <p>I am open to internships, junior roles, and freelance work.</p>

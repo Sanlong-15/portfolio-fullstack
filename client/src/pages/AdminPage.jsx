@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import SectionHeading from '../components/SectionHeading.jsx'
 import Loading from '../components/Loading.jsx'
 import ErrorMessage from '../components/ErrorMessage.jsx'
@@ -36,8 +36,8 @@ const toFormShape = (project) => ({
 export default function AdminPage() {
   const [adminKey, setAdminKey] = useState(sessionStorage.getItem('adminKey') || '')
   const [unlocked, setUnlocked] = useState(Boolean(adminKey))
-  const fetcher = useCallback(() => getProjects(), [])
-  const { data: projects, loading, error, refetch } = useFetch(fetcher)
+  // Load the project list from the API (same hook the public page uses)
+  const { data: projects, loading, error, refetch } = useFetch(getProjects)
 
   const [editing, setEditing] = useState(null)   // null | 'new' | project object
   const [form, setForm] = useState(EMPTY_PROJECT)
