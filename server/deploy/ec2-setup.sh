@@ -35,6 +35,15 @@ MONGO_URI=$(aws ssm get-parameter --name /portfolio/MONGO_URI --with-decryption 
 ADMIN_KEY=$(aws ssm get-parameter --name /portfolio/ADMIN_KEY --with-decryption --region "$REGION" --query Parameter.Value --output text)
 CLIENT_ORIGIN=$(aws ssm get-parameter --name /portfolio/CLIENT_ORIGIN --region "$REGION" --query Parameter.Value --output text 2>/dev/null || echo "http://localhost:5173")
 
+# Clean the values: remove accidental spaces/newlines from copy-paste,
+# and strip any invisible junk before the real "mongodb" scheme.
+MONGO_URI=$(echo "$MONGO_URI" | tr -d '[:space:]')
+ADMIN_KEY=$(echo "$ADMIN_KEY" | tr -d '[:space:]')
+CLIENT_ORIGIN=$(echo "$CLIENT_ORIGIN" | tr -d '[:space:]')
+case "$MONGO_URI" in
+  *mongodb*) MONGO_URI="mongodb${MONGO_URI#*mongodb}" ;;
+esac
+
 cat > .env << ENV
 PORT=5000
 MONGO_URI=$MONGO_URI
