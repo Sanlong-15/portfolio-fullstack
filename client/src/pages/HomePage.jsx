@@ -40,7 +40,8 @@ export default function HomePage() {
           {/* If the photo fails to load, show my initials instead */}
           {!photoBroken ? (
             <img
-              src={profile.photo}
+              className="hero-cutout"
+              src="/images/sanlong-hero.png"
               alt={`Portrait of ${profile.name}`}
               onError={() => setPhotoBroken(true)}
             />

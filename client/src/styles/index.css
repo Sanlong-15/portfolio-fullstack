@@ -134,6 +134,18 @@ main { flex: 1; }
 @keyframes blink { 50% { opacity: 0; } }
 .hero-intro { margin: 18px 0 28px; max-width: 54ch; color: var(--text-dim); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+/* Cutout composition (person + glow blob in one transparent PNG):
+   no card frame — the image IS the decoration */
+.hero-photo img.hero-cutout {
+  width: min(430px, 100%);
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-left: auto;
+}
+
 .hero-photo img, .hero-photo-fallback {
   width: min(320px, 100%); aspect-ratio: 1; object-fit: cover;
   border-radius: 24px; border: 1px solid var(--border);
@@ -370,7 +382,19 @@ main { flex: 1; }
   .hero-intro { margin-inline: auto; }
   .hero-actions { justify-content: center; }
   .hero-photo { order: -1; }
-  .hero-photo img, .hero-photo-fallback { margin-inline: auto; width: min(240px, 70%); }
+  /* Cutout composition (person + glow blob in one transparent PNG):
+   no card frame — the image IS the decoration */
+.hero-photo img.hero-cutout {
+  width: min(430px, 100%);
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-left: auto;
+}
+
+.hero-photo img, .hero-photo-fallback { margin-inline: auto; width: min(240px, 70%); }
   .about-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .achievements-grid { grid-template-columns: 1fr; }
