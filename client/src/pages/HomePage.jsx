@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import SectionHeading from '../components/SectionHeading.jsx'
 import SkillCard from '../components/SkillCard.jsx'
 import Button from '../components/Button.jsx'
-import useScrollReveal from '../hooks/useScrollReveal.js'
 import useTypewriter from '../hooks/useTypewriter.js'
 import profile from '../data/profile.js'
 import skillGroups from '../data/skills.js'
@@ -15,12 +14,11 @@ import achievements from '../data/achievements.js'
  * All personal content lives in src/data/, so this file is only layout.
  */
 export default function HomePage() {
-  const ref = useScrollReveal()                  // fade-in animation on scroll
   const typed = useTypewriter(profile.roles)     // rotating role text in the hero
   const [photoBroken, setPhotoBroken] = useState(false)
 
   return (
-    <div ref={ref}>
+    <div>
       {/* ---- Hero ---- */}
       <section className="hero container">
         <div className="hero-text">
@@ -54,7 +52,7 @@ export default function HomePage() {
       {/* ---- About ---- */}
       <section className="section container" id="about">
         <SectionHeading label="About Me" title="Who I am" />
-        <div className="about-grid reveal">
+        <div className="about-grid">
           <div className="about-text">
             <p>
               I am a second-year Software Engineering student at <strong>CamTech University</strong> in
@@ -103,7 +101,7 @@ export default function HomePage() {
         <SectionHeading label="Journey" title="Education & Experience" />
         <ol className="timeline">
           {education.map(({ period, title, place, detail }) => (
-            <li className="timeline-item reveal" key={title}>
+            <li className="timeline-item" key={title}>
               <span className="timeline-period">{period}</span>
               <h3 className="timeline-title">{title}</h3>
               <p className="timeline-place">{place}</p>
@@ -122,7 +120,7 @@ export default function HomePage() {
         />
         <div className="achievements-grid">
           {achievements.map(({ year, title, description, image }) => (
-            <article className="achievement-card reveal" key={title}>
+            <article className="achievement-card" key={title}>
               <img className="achievement-logo" src={image} alt="" aria-hidden="true" />
               <div>
                 <span className="achievement-year">{year}</span>
@@ -135,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* ---- Contact call-to-action ---- */}
-      <section className="section container cta-band reveal">
+      <section className="section container cta-band">
         <h2>Have a project or opportunity in mind?</h2>
         <p>I am open to internships, junior roles, and freelance work.</p>
         <Link to="/contact" className="btn btn-primary">Get in touch</Link>

@@ -10,7 +10,7 @@ const ICONS = {
 /** Card showing one skill category and its skill tags. */
 export default function SkillCard({ category, icon, skills }) {
   return (
-    <article className="skill-card reveal">
+    <article className="skill-card">
       <div className="skill-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
           strokeLinecap="round" strokeLinejoin="round">

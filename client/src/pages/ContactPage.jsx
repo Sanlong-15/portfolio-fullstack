@@ -1,19 +1,17 @@
 import SectionHeading from '../components/SectionHeading.jsx'
 import ContactForm from '../components/ContactForm.jsx'
-import useScrollReveal from '../hooks/useScrollReveal.js'
 import profile from '../data/profile.js'
 
 export default function ContactPage() {
-  const ref = useScrollReveal()
   return (
-    <div className="section container" ref={ref}>
+    <div className="section container">
       <SectionHeading
         label="Contact"
         title="Let's Connect"
         subtitle="Send me a message. It is stored safely and I read every one."
         center
       />
-      <div className="contact-layout reveal">
+      <div className="contact-layout">
         <aside className="contact-aside">
           <h3>Contact channels</h3>
           <ul className="contact-list">

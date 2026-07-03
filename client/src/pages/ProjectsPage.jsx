@@ -6,7 +6,6 @@ import Modal from '../components/Modal.jsx'
 import Loading from '../components/Loading.jsx'
 import ErrorMessage from '../components/ErrorMessage.jsx'
 import useFetch from '../hooks/useFetch.js'
-import useScrollReveal from '../hooks/useScrollReveal.js'
 import { getProjects } from '../services/api.js'
 
 /**
@@ -16,9 +15,6 @@ import { getProjects } from '../services/api.js'
 export default function ProjectsPage() {
   // Load all projects from the API (see hooks/useFetch.js)
   const { data: projects, loading, error, refetch } = useFetch(getProjects)
-
-  // re-run the reveal animation scan when the projects arrive
-  const ref = useScrollReveal(projects)
 
   // Which technology filter is active, e.g. 'All' or 'React'
   const [filter, setFilter] = useState('All')
@@ -50,7 +46,7 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="section container" ref={ref}>
+    <div className="section container">
       <SectionHeading
         label="Work"
         title="My Projects"
