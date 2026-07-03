@@ -6,7 +6,7 @@ const EMPTY = { name: '', email: '', subject: '', message: '' }
 
 /**
  * Controlled contact form with client-side validation.
- * The server validates again — never trust only the browser.
+ * The server validates again. Never trust only the browser.
  */
 export default function ContactForm() {
   const [form, setForm] = useState(EMPTY)

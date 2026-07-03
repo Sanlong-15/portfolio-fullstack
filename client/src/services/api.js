@@ -1,5 +1,5 @@
 /**
- * API service layer — every network request goes through this file.
+ * API service layer. Every network request goes through this file.
  * Pages and components never call fetch() directly. If the API URL
  * changes, we only edit the .env file, not the components.
  */

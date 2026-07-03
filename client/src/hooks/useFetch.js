@@ -35,7 +35,7 @@ const useFetch = (fetchFunction) => {
     }
     // Step 2: run it
     loadData()
-    // fetchFunction is an imported API function — it never changes,
+    // fetchFunction is an imported API function that never changes,
     // so the effect only re-runs when reloadCount changes.
   }, [reloadCount]) // eslint-disable-line react-hooks/exhaustive-deps
 
