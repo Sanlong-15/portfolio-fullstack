@@ -11,7 +11,7 @@ export default function ProjectCard({ project, onDetails }) {
   const [imgBroken, setImgBroken] = useState(false)
 
   return (
-    <article className="project-card reveal">
+    <article className="project-card">
       <div className="project-media">
         {imageUrl && !imgBroken ? (
           <img src={imageUrl} alt={`${title} preview`} loading="lazy" onError={() => setImgBroken(true)} />

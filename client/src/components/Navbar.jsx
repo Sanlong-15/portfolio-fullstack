@@ -18,7 +18,6 @@ export default function Navbar() {
     <header className="navbar">
       <nav className="navbar-inner container" aria-label="Main navigation">
         <NavLink to="/" className="navbar-brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">SH</span>
           <span className="brand-name">Sanlong Huy</span>
         </NavLink>
 
