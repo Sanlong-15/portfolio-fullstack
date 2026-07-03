@@ -60,7 +60,7 @@ export default function HomePage() {
               problem, designing the interface in Figma, and writing the code that makes it real.
             </p>
             <p>
-              Alongside my studies, I have over one year of hands-on experience in
+              Alongside my studies, I have more than two years of hands-on experience in
               <strong> electronic device repair</strong> at BIS School, fixing laptops, computers, and
               power supplies. That work taught me patience, careful diagnosis, and how to explain
               technical problems in simple words. I bring those same skills to software.
@@ -74,7 +74,7 @@ export default function HomePage() {
           </div>
           <ul className="about-facts">
             <li><span className="fact-number">3×</span> Top 10 competition finalist</li>
-            <li><span className="fact-number">1+</span> year device repair experience</li>
+            <li><span className="fact-number">2+</span> years device repair experience</li>
             <li><span className="fact-number">3</span> languages: Khmer, English, Chinese</li>
             <li><span className="fact-number">{new Date().getFullYear() - 2025 + 1}</span> years at CamTech University</li>
           </ul>

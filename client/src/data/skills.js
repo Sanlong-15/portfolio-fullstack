@@ -6,7 +6,7 @@ const skillGroups = [
   {
     category: 'Programming Languages',
     icon: 'code',
-    skills: ['C', 'C++', 'Python', 'JavaScript (ES6+)'],
+    skills: ['C', 'C++', 'Java', 'Python', 'JavaScript (ES6+)'],
   },
   {
     category: 'Front-End',

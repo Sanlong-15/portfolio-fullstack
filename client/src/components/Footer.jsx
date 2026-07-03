@@ -12,7 +12,7 @@ export default function Footer() {
         <ul className="footer-links">
           <li><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
           <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href={`mailto:${profile.email}`}>Email</a></li>
+          <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=huysanlong1@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></li>
           <li><Link to="/admin">Admin</Link></li>
         </ul>
       </div>

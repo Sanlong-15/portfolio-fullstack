@@ -17,7 +17,7 @@ export default function ContactPage() {
           <ul className="contact-list">
             <li>
               <span className="contact-label">Email</span>
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=huysanlong1@gmail.com" target="_blank" rel="noopener noreferrer">{profile.email}</a>
             </li>
             <li>
               <span className="contact-label">GitHub</span>
