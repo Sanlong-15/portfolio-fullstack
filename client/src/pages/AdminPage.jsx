@@ -5,6 +5,7 @@ import ErrorMessage from '../components/ErrorMessage.jsx'
 import Button from '../components/Button.jsx'
 import Modal from '../components/Modal.jsx'
 import useFetch from '../hooks/useFetch.js'
+import useScrollReveal from '../hooks/useScrollReveal.js'
 import { getProjects, createProject, updateProject, deleteProject } from '../services/api.js'
 
 const EMPTY_PROJECT = {
@@ -38,6 +39,7 @@ export default function AdminPage() {
   const [unlocked, setUnlocked] = useState(Boolean(adminKey))
   // Load the project list from the API (same hook the public page uses)
   const { data: projects, loading, error, refetch } = useFetch(getProjects)
+  const ref = useScrollReveal(projects)
 
   const [editing, setEditing] = useState(null)   // null | 'new' | project object
   const [form, setForm] = useState(EMPTY_PROJECT)
@@ -104,7 +106,7 @@ export default function AdminPage() {
 
   if (!unlocked) {
     return (
-      <div className="section container admin-lock">
+      <div className="section container admin-lock" ref={ref}>
         <SectionHeading label="Admin" title="Management Dashboard" center />
         <form className="contact-form admin-key-form" onSubmit={unlock}>
           <div className="form-field">
@@ -125,7 +127,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="section container">
+    <div className="section container" ref={ref}>
       <SectionHeading label="Admin" title="Manage Projects" />
       <div className="admin-toolbar">
         <Button small onClick={openNew}>+ Add project</Button>
