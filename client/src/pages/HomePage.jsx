@@ -11,7 +11,7 @@ import education from '../data/education.js'
 import achievements from '../data/achievements.js'
 
 /**
- * Home page — hero, about, skills, education, achievements, contact CTA.
+ * Home page: hero, about, skills, education, achievements, contact CTA.
  * All personal content lives in src/data/, so this file is only layout.
  */
 export default function HomePage() {
@@ -65,12 +65,12 @@ export default function HomePage() {
               Alongside my studies, I have over one year of hands-on experience in
               <strong> electronic device repair</strong> at BIS School, fixing laptops, computers, and
               power supplies. That work taught me patience, careful diagnosis, and how to explain
-              technical problems in simple words — skills I bring to software too.
+              technical problems in simple words. I bring those same skills to software.
             </p>
             <p>
               My goal is to grow into a <strong>full-stack developer</strong> and later open my own
               computer service business in Cambodia. I value teamwork, honest feedback, and building
-              things that are useful for my community — which is why my projects connect technology
+              things that are useful for my community. That is why my projects connect technology
               with education and sustainable development.
             </p>
           </div>

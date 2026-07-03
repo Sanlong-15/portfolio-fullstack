@@ -30,7 +30,7 @@ const toFormShape = (project) => ({
 })
 
 /**
- * Admin dashboard — full CRUD over /api/projects.
+ * Admin dashboard with full CRUD over /api/projects.
  * Write operations require the admin key, which is sent as the
  * x-admin-key header and kept only in this session (never in code).
  */

@@ -10,7 +10,7 @@ export default function ContactPage() {
       <SectionHeading
         label="Contact"
         title="Let's Connect"
-        subtitle="Send me a message — it is stored safely and I read every one."
+        subtitle="Send me a message. It is stored safely and I read every one."
         center
       />
       <div className="contact-layout reveal">

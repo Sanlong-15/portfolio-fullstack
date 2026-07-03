@@ -10,7 +10,7 @@ import useScrollReveal from '../hooks/useScrollReveal.js'
 import { getProjects } from '../services/api.js'
 
 /**
- * Projects page — the data comes from MongoDB through the REST API.
+ * Projects page. The data comes from MongoDB through the REST API.
  * Shows: loading spinner → then either an error box or the project cards.
  */
 export default function ProjectsPage() {

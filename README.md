@@ -1,4 +1,4 @@
-# Sanlong Huy — Professional Portfolio Website
+# Sanlong Huy Professional Portfolio Website
 
 A full-stack personal portfolio web application built for the Web Development
 final assessment at CamTech University.
@@ -46,8 +46,8 @@ Express REST API  (/api/projects, /api/messages, /api/health)
 MongoDB Atlas  (projects + messages collections)
 ```
 
-- `client/` — React application (components, pages, services, hooks, data, styles)
-- `server/` — Express API (config, models, controllers, middleware, routes, seed)
+- `client/` holds the React application (components, pages, services, hooks, data, styles)
+- `server/` holds the Express API (config, models, controllers, middleware, routes, seed)
 
 ## Installation
 
@@ -130,7 +130,7 @@ _Add screenshots of Home, Projects, Contact, and Admin pages here before submiss
 
 ## Author
 
-**Sanlong Huy** — Year 2 Software Engineering, CamTech University, Phnom Penh
+**Sanlong Huy**, Year 2 Software Engineering student,, CamTech University, Phnom Penh
 - GitHub: https://github.com/Sanlong-15
 - LinkedIn: https://www.linkedin.com/in/huysanlong-21929b387
 - Email: huysanlong1@gmail.com
