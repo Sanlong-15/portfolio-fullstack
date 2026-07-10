@@ -50,7 +50,7 @@ export default function HomePage() {
       </section>
 
       {/* ---- About ---- */}
-      <section className="section container" id="about">
+      <section className="section container reveal" id="about">
         <SectionHeading label="About Me" title="Who I am" />
         <div className="about-grid">
           <div className="about-text">
@@ -82,7 +82,7 @@ export default function HomePage() {
       </section>
 
       {/* ---- Skills ---- */}
-      <section className="section container" id="skills">
+      <section className="section container reveal" id="skills">
         <SectionHeading
           label="Skills"
           title="Technical Skills"
@@ -97,7 +97,7 @@ export default function HomePage() {
       </section>
 
       {/* ---- Education & Experience ---- */}
-      <section className="section container" id="education">
+      <section className="section container reveal" id="education">
         <SectionHeading label="Journey" title="Education & Experience" />
         <ol className="timeline">
           {education.map(({ period, title, place, detail }) => (
@@ -112,7 +112,7 @@ export default function HomePage() {
       </section>
 
       {/* ---- Achievements ---- */}
-      <section className="section container" id="achievements">
+      <section className="section container reveal" id="achievements">
         <SectionHeading
           label="Recognition"
           title="Achievements & Activities"
@@ -133,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* ---- Contact call-to-action ---- */}
-      <section className="section container cta-band">
+      <section className="section container cta-band reveal">
         <h2>Have a project or opportunity in mind?</h2>
         <p>I am open to internships, junior roles, and freelance work.</p>
         <Link to="/contact" className="btn btn-primary">Get in touch</Link>

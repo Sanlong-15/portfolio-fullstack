@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
 
+// When the DB is not connected, fail queries immediately instead of
+// buffering them for ~10s. This turns a long hang into a fast, clear error.
+mongoose.set("bufferCommands", false);
+
 let mongoServer;
 
 /**
@@ -39,7 +43,7 @@ const connectDB = async () => {
   }
 
   try {
-    const conn = await mongoose.connect(uri);
+    const conn = await mongoose.connect(uri, { serverSelectionTimeoutMS: 5000 });
     console.log(`MongoDB connected: ${conn.connection.host}`);
     return true;
   } catch (error) {

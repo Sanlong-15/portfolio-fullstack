@@ -34,8 +34,10 @@ const toFormShape = (project) => ({
  * x-admin-key header and kept only in this session (never in code).
  */
 export default function AdminPage() {
-  const [adminKey, setAdminKey] = useState(sessionStorage.getItem('adminKey') || '')
-  const [unlocked, setUnlocked] = useState(Boolean(adminKey))
+  const savedKey = sessionStorage.getItem('adminKey') || ''
+  const [adminKey, setAdminKey] = useState(savedKey)
+  // Only auto-unlock if the saved key is the correct one.
+  const [unlocked, setUnlocked] = useState(savedKey === '1512')
   // Load the project list from the API (same hook the public page uses)
   const { data: projects, loading, error, refetch } = useFetch(getProjects)
 
@@ -43,9 +45,22 @@ export default function AdminPage() {
   const [form, setForm] = useState(EMPTY_PROJECT)
   const [busy, setBusy] = useState(false)
   const [feedback, setFeedback] = useState('')
+  const [lockError, setLockError] = useState('')
+  const [shake, setShake] = useState(false)
 
   const unlock = (e) => {
     e.preventDefault()
+    // Only this exact key opens the dashboard. Wrong keys are rejected.
+    // Note: this is a light front-end gate. The real protection is the
+    // server ADMIN_KEY, which every write operation must still match.
+    if (adminKey !== '1512') {
+      setLockError('Wrong admin key. Access denied.')
+      setUnlocked(false)
+      setShake(true)
+      setTimeout(() => setShake(false), 500) // remove class so it can replay
+      return
+    }
+    setLockError('')
     sessionStorage.setItem('adminKey', adminKey)
     setUnlocked(true)
   }
@@ -106,15 +121,18 @@ export default function AdminPage() {
     return (
       <div className="section container admin-lock">
         <SectionHeading label="Admin" title="Management Dashboard" center />
-        <form className="contact-form admin-key-form" onSubmit={unlock}>
+        <form className={`contact-form admin-key-form ${shake ? 'shake' : ''}`} onSubmit={unlock}>
           <div className="form-field">
             <label htmlFor="adminKey">Admin key</label>
             <input
               id="adminKey" type="password" value={adminKey}
-              onChange={(e) => setAdminKey(e.target.value)}
+              onChange={(e) => { setAdminKey(e.target.value); setLockError('') }}
               placeholder="Enter the admin key" required
             />
           </div>
+          {lockError && (
+            <p className="admin-lock-error" role="alert">{lockError}</p>
+          )}
           <Button type="submit">Unlock dashboard</Button>
           <p className="admin-note">
             The key is checked by the server on every write operation.
