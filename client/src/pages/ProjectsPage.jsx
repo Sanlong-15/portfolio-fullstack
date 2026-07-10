@@ -10,29 +10,15 @@ import { getProjects } from '../services/api.js'
 
 // Projects page.
 export default function ProjectsPage() {
-  // Load all projects from the API (see hooks/useFetch.js)
   const { data: projects, loading, error, refetch } = useFetch(getProjects)
-
-  // Which technology filter is active, e.g. 'All' or 'React'
   const [filter, setFilter] = useState('All')
-
-  // Which project is open in the details modal (null = closed)
   const [selected, setSelected] = useState(null)
-
-  // These are plain variables, recalculated on every render.
-  // The list is small, so that is perfectly fine.
   let techFilters = []
   let visibleProjects = []
 
   if (projects) {
-    // Step 1: collect the technologies of ALL projects into one list.
-    // flatMap turns [['HTML','CSS'], ['React']] into ['HTML','CSS','React']
     const allTechnologies = projects.flatMap((project) => project.technologies)
-
-    // Step 2: new Set(...) removes duplicates, then we add 'All' in front
     techFilters = ['All', ...new Set(allTechnologies)]
-
-    // Step 3: keep only the projects that use the chosen technology
     if (filter === 'All') {
       visibleProjects = projects
     } else {

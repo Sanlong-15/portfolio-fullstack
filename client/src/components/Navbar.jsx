@@ -7,7 +7,6 @@ const LINKS = [
   { to: '/contact', label: 'Contact' },
 ]
 
-// Responsive navigation bar.
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 

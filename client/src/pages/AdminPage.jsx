@@ -46,9 +46,6 @@ export default function AdminPage() {
 
   const unlock = (e) => {
     e.preventDefault()
-    // Only this exact key opens the dashboard. Wrong keys are rejected.
-    // Note: this is a light front-end gate. The real protection is the
-    // server ADMIN_KEY, which every write operation must still match.
     if (adminKey !== '1512') {
       setLockError('Wrong admin key. Access denied.')
       setUnlocked(false)

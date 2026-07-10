@@ -1,6 +1,5 @@
 import Button from './Button.jsx'
 
-// Error state with an optional retry action.
 export default function ErrorMessage({ message, onRetry }) {
   return (
     <div className="error-box" role="alert">

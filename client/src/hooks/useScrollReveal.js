@@ -1,12 +1,10 @@
 import { useEffect } from 'react'
 
-// Finds every element with the class "reveal" on the page and makes it fade/slide in.
 export default function useScrollReveal(key) {
   useEffect(() => {
     const elements = document.querySelectorAll('.reveal:not(.is-visible)')
     if (elements.length === 0) return
 
-    // If the browser can't observe, just show everything (safe fallback).
     if (!('IntersectionObserver' in window)) {
       elements.forEach((el) => el.classList.add('is-visible'))
       return

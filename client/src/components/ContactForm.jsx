@@ -4,11 +4,10 @@ import Button from './Button.jsx'
 
 const EMPTY = { name: '', email: '', subject: '', message: '' }
 
-// Controlled contact form with client-side validation.
 export default function ContactForm() {
   const [form, setForm] = useState(EMPTY)
   const [errors, setErrors] = useState({})
-  const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [status, setStatus] = useState('idle') 
   const [serverError, setServerError] = useState('')
 
   const validate = () => {
