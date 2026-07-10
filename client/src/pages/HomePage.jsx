@@ -9,10 +9,7 @@ import skillGroups from '../data/skills.js'
 import education from '../data/education.js'
 import achievements from '../data/achievements.js'
 
-/**
- * Home page: hero, about, skills, education, achievements, contact CTA.
- * All personal content lives in src/data/, so this file is only layout.
- */
+// Home page: hero, about, skills, education, achievements, contact CTA.
 export default function HomePage() {
   const typed = useTypewriter(profile.roles)     // rotating role text in the hero
   const [photoBroken, setPhotoBroken] = useState(false)

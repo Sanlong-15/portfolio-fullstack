@@ -1,8 +1,4 @@
-/**
- * Full project information shown inside the Modal.
- * Renders a field row only when the project has that content
- * (conditional rendering requirement).
- */
+// Full project information shown inside the Modal.
 const Row = ({ label, children }) =>
   children ? (
     <div className="detail-row">

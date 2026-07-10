@@ -7,10 +7,7 @@ const LINKS = [
   { to: '/contact', label: 'Contact' },
 ]
 
-/**
- * Responsive navigation bar.
- * NavLink adds an "active" class automatically for the current route.
- */
+// Responsive navigation bar.
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 

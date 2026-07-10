@@ -3,11 +3,7 @@ import Project from "../models/Project.js";
 import projectsData from "./projectsData.js";
 import connectDB, { disconnectDB } from "../config/db.js";
 
-/**
- * Seed script: fills the projects collection with starting data.
- * Run once with: npm run seed
- * It clears existing projects first so it can be re-run safely.
- */
+// Seed script: fills the projects collection with starting data.
 const seed = async () => {
   try {
     const connected = await connectDB();

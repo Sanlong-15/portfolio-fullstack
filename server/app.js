@@ -5,10 +5,7 @@ import messageRoutes from './routes/messageRoutes.js'
 import errorHandler from './middleware/errorHandler.js'
 import notFound from './middleware/notFound.js'
 
-/**
- * app.js builds the Express application (routes + middleware).
- * server.js starts it. Splitting them keeps the app testable.
- */
+// app.js builds the Express application (routes + middleware).
 const app = express()
 
 // CORS: only allow the configured frontend origin (plus localhost dev)

@@ -1,7 +1,4 @@
-/**
- * API tests that run WITHOUT a database:
- * routing, admin auth, invalid-id handling, 404s, and schema validation.
- */
+// API tests that run WITHOUT a database: routing, admin auth, invalid-id handling, 404s,.
 import assert from 'node:assert'
 process.env.ADMIN_KEY = 'test-key-123'
 process.env.CLIENT_ORIGIN = 'http://localhost:5173'

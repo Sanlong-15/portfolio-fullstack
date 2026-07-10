@@ -1,12 +1,6 @@
 import { useEffect } from 'react'
 
-/**
- * Finds every element with the class "reveal" on the page and makes it
- * fade/slide in when it scrolls into view (adds the class "is-visible").
- *
- * Pass the current route path as `key` so it re-scans after you navigate
- * to a new page.
- */
+// Finds every element with the class "reveal" on the page and makes it fade/slide in.
 export default function useScrollReveal(key) {
   useEffect(() => {
     const elements = document.querySelectorAll('.reveal:not(.is-visible)')

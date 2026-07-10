@@ -4,10 +4,7 @@ import Button from './Button.jsx'
 
 const EMPTY = { name: '', email: '', subject: '', message: '' }
 
-/**
- * Controlled contact form with client-side validation.
- * The server validates again. Never trust only the browser.
- */
+// Controlled contact form with client-side validation.
 export default function ContactForm() {
   const [form, setForm] = useState(EMPTY)
   const [errors, setErrors] = useState({})

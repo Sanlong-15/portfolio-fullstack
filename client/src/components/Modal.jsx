@@ -1,9 +1,6 @@
 import { useEffect } from 'react'
 
-/**
- * Accessible modal dialog: closes on Escape or backdrop click,
- * and locks page scrolling while open.
- */
+// Accessible modal dialog: closes on Escape or backdrop click, and locks page scrolling.
 export default function Modal({ title, onClose, children }) {
   useEffect(() => {
     const onKey = (e) => {

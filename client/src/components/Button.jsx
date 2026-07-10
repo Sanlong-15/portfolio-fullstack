@@ -1,7 +1,4 @@
-/**
- * Reusable button. Renders an <a> when href is given, otherwise <button>.
- * variant: "primary" | "outline" | "ghost" | "danger"
- */
+// Reusable button.
 export default function Button({ children, href, variant = 'primary', small, ...rest }) {
   const className = `btn btn-${variant}${small ? ' btn-small' : ''}`
   if (href) {

@@ -1,14 +1,6 @@
 import { useState, useEffect } from 'react'
 
-/**
- * Typewriter effect for the hero section.
- * It cycles through a list of words like this:
- *   type "Software..." letter by letter → wait 2 seconds →
- *   delete it letter by letter → move to the next word → repeat.
- *
- * How: every time `text` changes, the effect runs again and sets
- * a timer for the NEXT letter. So it moves one letter per timer tick.
- */
+// Typewriter effect for the hero section.
 const useTypewriter = (words) => {
   const [wordIndex, setWordIndex] = useState(0)  // which word we are on
   const [text, setText] = useState('')           // what is shown right now

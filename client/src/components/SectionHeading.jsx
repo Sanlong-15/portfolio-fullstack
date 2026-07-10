@@ -1,4 +1,4 @@
-/** Consistent heading block used at the top of every section. */
+// Consistent heading block used at the top of every section.
 export default function SectionHeading({ label, title, subtitle, center }) {
   return (
     <div className={`section-heading${center ? ' center' : ''}`}>

@@ -1,21 +1,9 @@
-/**
- * API service layer. Every network request goes through this file.
- * Pages and components never call fetch() directly. If the API URL
- * changes, we only edit the .env file, not the components.
- */
+// API service layer.
 
 // The API address comes from client/.env (VITE_API_URL)
 const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
-/**
- * Shared helper used by every API call below.
- *
- * Steps:
- *   1. Build the request options (method, headers, body)
- *   2. Send the request with fetch() and wait for the answer
- *   3. Turn the answer into JSON
- *   4. If the server said "error", throw it so the page can show it
- */
+// Shared helper used by every API call below.
 const request = async (path, { method = 'GET', body, adminKey } = {}) => {
   // Step 1: build the options object piece by piece
   const options = {

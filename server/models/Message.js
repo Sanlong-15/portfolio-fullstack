@@ -1,9 +1,6 @@
 import mongoose from 'mongoose'
 
-/**
- * Message schema — stores contact form submissions.
- * Messages are never displayed publicly (see routes).
- */
+// Message schema — stores contact form submissions.
 const messageSchema = new mongoose.Schema(
   {
     name: {

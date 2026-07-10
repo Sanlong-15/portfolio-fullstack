@@ -1,4 +1,4 @@
-/** Competitions, volunteering, and community activities. */
+// Competitions, volunteering, and community activities.
 const achievements = [
   {
     year: '2025',

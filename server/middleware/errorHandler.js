@@ -1,8 +1,4 @@
-/**
- * Central error handler — runs when any controller calls next(error).
- * Converts Mongoose validation errors into friendly 400 responses
- * and hides internal details from public users (security requirement).
- */
+// Central error handler — runs when any controller calls next(error).
 const errorHandler = (err, req, res, next) => {
   // Mongoose schema validation failed
   if (err.name === 'ValidationError') {

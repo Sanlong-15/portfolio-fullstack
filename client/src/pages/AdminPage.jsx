@@ -13,14 +13,14 @@ const EMPTY_PROJECT = {
   lessonsLearned: '', featured: false,
 }
 
-/** Convert the form (strings) into the API shape (arrays). */
+// Convert the form (strings) into the API shape (arrays).
 const toApiShape = (form) => ({
   ...form,
   features: form.features.split('\n').map((s) => s.trim()).filter(Boolean),
   technologies: form.technologies.split(',').map((s) => s.trim()).filter(Boolean),
 })
 
-/** Convert an API project into editable form values. */
+// Convert an API project into editable form values.
 const toFormShape = (project) => ({
   ...EMPTY_PROJECT,
   ...project,
@@ -28,11 +28,7 @@ const toFormShape = (project) => ({
   technologies: (project.technologies || []).join(', '),
 })
 
-/**
- * Admin dashboard with full CRUD over /api/projects.
- * Write operations require the admin key, which is sent as the
- * x-admin-key header and kept only in this session (never in code).
- */
+// Admin dashboard with full CRUD over /api/projects.
 export default function AdminPage() {
   const savedKey = sessionStorage.getItem('adminKey') || ''
   const [adminKey, setAdminKey] = useState(savedKey)

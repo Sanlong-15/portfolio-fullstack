@@ -6,21 +6,11 @@ mongoose.set("bufferCommands", false);
 
 let mongoServer;
 
-/**
- * Return true if the configured URI still looks like the placeholder
- * from .env.example (meaning the developer forgot to set a real one).
- */
+// Return true if the configured URI still looks like the placeholder from .env.example.
 const isPlaceholderUri = (uri) =>
   !uri || /<username>|<password>|<cluster>/.test(uri);
 
-/**
- * Connect to MongoDB using the connection string from .env.
- *
- * Development helper: if MONGO_URI is missing or still a placeholder,
- * start a TEMPORARY in-memory MongoDB so the app can run locally.
- * The package for this exists only in devDependencies, so it is
- * loaded with a dynamic import — production never needs it.
- */
+// Connect to MongoDB using the connection string from .env.
 const connectDB = async () => {
   if (mongoose.connection.readyState >= 1) {
     return true;

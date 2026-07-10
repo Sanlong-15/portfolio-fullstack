@@ -1,10 +1,4 @@
-/**
- * Simple admin protection.
- * Write operations must send the header:  x-admin-key: <ADMIN_KEY>
- * The key lives in .env, never in source code.
- * This satisfies the assessment rule that public CUD endpoints
- * must not be left completely unprotected.
- */
+// Simple admin protection.
 const adminAuth = (req, res, next) => {
   const key = req.headers['x-admin-key']
   if (!process.env.ADMIN_KEY) {

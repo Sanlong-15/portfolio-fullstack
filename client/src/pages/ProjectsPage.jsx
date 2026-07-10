@@ -8,10 +8,7 @@ import ErrorMessage from '../components/ErrorMessage.jsx'
 import useFetch from '../hooks/useFetch.js'
 import { getProjects } from '../services/api.js'
 
-/**
- * Projects page. The data comes from MongoDB through the REST API.
- * Shows: loading spinner → then either an error box or the project cards.
- */
+// Projects page.
 export default function ProjectsPage() {
   // Load all projects from the API (see hooks/useFetch.js)
   const { data: projects, loading, error, refetch } = useFetch(getProjects)

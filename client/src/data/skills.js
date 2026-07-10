@@ -1,7 +1,4 @@
-/**
- * Skills grouped by category, as the assessment requests.
- * Static content: it rarely changes, so it does not need the database.
- */
+// Skills grouped by category, as the assessment requests.
 const skillGroups = [
   {
     category: 'Programming Languages',

@@ -1,10 +1,6 @@
 import mongoose from 'mongoose'
 
-/**
- * Project schema — matches the fields suggested in the assessment.
- * Mongoose validation runs before every save, so bad data
- * never reaches the database (server-side validation).
- */
+// Project schema — matches the fields suggested in the assessment.
 const projectSchema = new mongoose.Schema(
   {
     title: {

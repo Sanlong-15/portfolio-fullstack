@@ -1,16 +1,6 @@
 import { useState, useEffect } from 'react'
 
-/**
- * Custom hook for loading data from the API.
- *
- * Every page that loads data needs the same three things:
- *   - loading : true while we wait for the server
- *   - error   : text if something went wrong
- *   - data    : the result when it worked
- * This hook writes that logic once, so pages stay short.
- *
- * Usage:  const { data, loading, error, refetch } = useFetch(getProjects)
- */
+// Custom hook for loading data from the API.
 const useFetch = (fetchFunction) => {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)

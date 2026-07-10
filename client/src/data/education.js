@@ -1,4 +1,4 @@
-/** Education and experience timeline from my CV. */
+// Education and experience timeline from my CV.
 const education = [
   {
     period: 'Jan 2025 to Present',

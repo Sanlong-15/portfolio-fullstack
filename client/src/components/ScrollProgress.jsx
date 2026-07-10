@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
 
-/**
- * A thin bar fixed at the top of the page.
- * Its width grows from 0% to 100% as the user scrolls down the page.
- */
+// A thin bar fixed at the top of the page.
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0)
 

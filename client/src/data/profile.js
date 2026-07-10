@@ -1,4 +1,4 @@
-/** Central place for personal info used across pages. */
+// Central place for personal info used across pages.
 const profile = {
   name: 'Sanlong Huy',
   title: 'Software Engineering Student',

@@ -1,11 +1,7 @@
 import { useState } from 'react'
 import Button from './Button.jsx'
 
-/**
- * Card for one project. Receives the project via props (destructured)
- * and reports clicks up to the parent through the onDetails callback.
- * If the image is missing or fails to load, a letter fallback is shown.
- */
+// Card for one project.
 export default function ProjectCard({ project, onDetails }) {
   const { title, description, technologies, imageUrl, githubUrl, liveUrl, featured } = project
   const [imgBroken, setImgBroken] = useState(false)

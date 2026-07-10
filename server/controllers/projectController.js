@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import Project from '../models/Project.js'
 
-/** Helper: check that :id is a valid MongoDB ObjectId before querying. */
+// Helper: check that :id is a valid MongoDB ObjectId before querying.
 const isValidId = (id) => mongoose.Types.ObjectId.isValid(id)
 
 // GET /api/projects — public

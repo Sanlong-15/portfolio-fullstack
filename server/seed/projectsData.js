@@ -1,7 +1,4 @@
-/**
- * Real project data from Sanlong Huy's CV and previous portfolio.
- * Used by seedProjects.js to fill MongoDB with starting content.
- */
+// Real project data from Sanlong Huy's CV and previous portfolio.
 const projectsData = [
   {
     title: 'Booxie',
